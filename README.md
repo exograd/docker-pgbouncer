@@ -1,5 +1,5 @@
 # Introduction
-This repository contains an docker image for
+This repository contains a docker image for
 [PgBouncer](https://www.pgbouncer.org/).
 
 # Build
