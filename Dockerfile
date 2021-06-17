@@ -39,4 +39,4 @@ RUN apt-get update -y && \
 
 USER pgbouncer:pgbouncer
 
-ENTRYPOINT ["/usr/local/bin/pgbouncer"]
+ENTRYPOINT ["/usr/local/bin/pgbouncer", "-u", "pgbouncer"]
