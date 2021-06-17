@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 
 ENV PGBOUNCER_VERSION "1.15.0"
+ENV PGBOUNCER_SHA256 "e05a9e158aa6256f60aacbcd9125d3109155c1001a1d1c15d33a37c685d31380  pgbouncer-1.15.0.tar.gz"
 
 RUN apt-get update -y && \
     apt-get upgrade \
@@ -13,16 +14,17 @@ RUN apt-get update -y && \
       libevent-dev \
       curl && \
     curl \
-      -sSo /tmp/bouncer.tar.gz \
+      -sSo /tmp/pgbouncer-$PGBOUNCER_VERSION.tar.gz \
       "https://www.pgbouncer.org/downloads/files/1.15.0/pgbouncer-$PGBOUNCER_VERSION.tar.gz" && \
     cd /tmp && \
-    tar -xzf bouncer.tar.gz && \
+    echo $PGBOUNCER_SHA256 | sha256sum --check && \
+    tar -xzf pgbouncer-$PGBOUNCER_VERSION.tar.gz && \
     cd pgbouncer-$PGBOUNCER_VERSION && \
     ./configure --prefix=/usr/local/ && \
     make && \
     make install && \
     cd / && \
-    rm -rf /tmp/pgbouncer.tar.gz && \
+    rm -rf /tmp/pgbouncer-$PGBOUNCER_VERSION.tar.gz && \
     rm -rf /tmp/pgbouncer-$PGBOUNCER_VERSION && \
     groupadd -g 2001 pgbouncer && \
     useradd -m -g pgbouncer -u 2001 pgbouncer && \
