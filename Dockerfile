@@ -15,7 +15,7 @@ RUN apt-get update -y && \
       curl && \
     curl \
       -sSo /tmp/pgbouncer-$PGBOUNCER_VERSION.tar.gz \
-      "https://www.pgbouncer.org/downloads/files/1.15.0/pgbouncer-$PGBOUNCER_VERSION.tar.gz" && \
+      "https://www.pgbouncer.org/downloads/files/$PGBOUNCER_VERSION/pgbouncer-$PGBOUNCER_VERSION.tar.gz" && \
     cd /tmp && \
     echo $PGBOUNCER_SHA256 | sha256sum --check && \
     tar -xzf pgbouncer-$PGBOUNCER_VERSION.tar.gz && \
