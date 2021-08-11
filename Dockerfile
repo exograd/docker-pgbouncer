@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-ENV PGBOUNCER_VERSION "1.15.0"
-ENV PGBOUNCER_SHA256 "e05a9e158aa6256f60aacbcd9125d3109155c1001a1d1c15d33a37c685d31380  pgbouncer-1.15.0.tar.gz"
+ENV PGBOUNCER_VERSION "1.16.0"
+ENV PGBOUNCER_SHA256 "a4a391618bb83caaee2a8cd9653974f4c1b98b95987d5cabbbeb801da6342652  pgbouncer-1.16.0.tar.gz"
 
 RUN apt-get update -y && \
     apt-get upgrade \
